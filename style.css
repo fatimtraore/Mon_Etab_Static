@@ -1,0 +1,238 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Page de connexion */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #e0e0e0;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.login-form h1 {
+    margin: 0 0 20px;
+    text-align: center;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Tableau de bord */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #969799;
+    color: #0e0707;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative; /* Assure que le bouton se positionne correctement par rapport à la sidebar */
+}
+
+.sidebar h2 {
+    margin-top: 0;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    color: #0e0707;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar nav ul li a:hover {
+    text-decoration: underline;
+}
+
+#logoutButton {
+    background-color: #dc3545;
+    border: none;
+    color: #0e0707;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: auto; /* Ajoute de l'espace au-dessus du bouton */
+    width: 100%;
+    position: absolute; /* Positionnement absolu pour le placer en bas */
+    bottom: 20px; /* Espace du bas de la sidebar */
+    left: 0;
+}
+
+#logoutButton:hover {
+    background-color: #c82333;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Styles CRUD */
+.crud-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.crud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.crud-header h2 {
+    margin: 0;
+}
+
+.crud-header button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.crud-header button:hover {
+    background-color: #0056b3;
+}
+
+.crud-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.crud-form h3 {
+    margin-top: 0;
+}
+
+.crud-form label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.crud-form input, .crud-form select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.crud-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.crud-form button:hover {
+    background-color: #218838;
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.crud-table th, .crud-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.crud-table th {
+    background-color: #f8f9fa;
+}
+
+.crud-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Tableau de bord info */
+.dashboard-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.info-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.chart-box {
+    height: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

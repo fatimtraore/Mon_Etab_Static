@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion d'Établissement</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Page de connexion -->
+    <div id="login" class="login-container">
+        <div class="login-form">
+            <h1>Mon Etab</h1>
+            <form id="loginForm">
+                <input type="text id="username" required placeholder="Identifiant">
+                <input type="password" id="password" required placeholder="Mot de passe">
+                <button type="submit">Connexion</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tableau de bord -->
+    <div id="dashboard" class="dashboard-container" style="display: none;">
+        <div class="sidebar">
+            <h2>Mon Etab</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" data-tab="home">Tableau de bord</a></li>
+                    <li><a href="#" data-tab="students">Élèves</a></li>
+                    <li><a href="#" data-tab="teachers">Professeurs</a></li>
+                    <li><a href="#" data-tab="users">Utilisateurs</a></li>
+                    <li><a href="#" data-tab="report">Rapport</a></li>
+                </ul>
+            </nav>
+            <button id="logoutButton">Déconnexion</button>
+        </div>
+        <div class="content">
+            <!-- Tableau de bord -->
+            <div id="home" class="tab-content">
+                <h2>Tableau de Bord</h2>
+                <div class="dashboard-info">
+                    <div class="info-box">Nombre d'élèves: <span id="studentsCount">0</span></div>
+                    <div class="info-box">Nombre de professeurs: <span id="teachersCount">0</span></div>
+                    <div class="info-box">Nombre d'utilisateurs: <span id="usersCount">0</span></div>
+                    <div class="info-box">Statistique par genre :</div>
+                    <div id="genderStats" class="chart-box"></div>
+                </div>
+            </div>
+
+            <!-- Section Elèves -->
+            <div id="students" class="tab-content">
+                <div class="crud-container">
+                    <div class="crud-header">
+                        <h2>Élèves (1)</h2>
+                        <button id="addStudentButton">Ajouter un Élève</button>
+                    </div>
+                    <div class="crud-form" id="addStudentFormContainer" style="display: none;">
+                        <h3>Ajouter un Élève</h3>
+                        <form id="addStudentForm" class="crud-form">
+                            <label for="studentName">Nom :</label>
+                            <input type="text" id="studentName" required>
+                            <label for="studentFirstName">Prénom :</label>
+                            <input type="text" id="studentFirstName" required>
+                            <label>Genre :</label>
+                            <input type="radio" id="male" name="gender" value="Homme" required>
+                            <label for="male">Homme</label>
+                            <input type="radio" id="female" name="gender" value="Femme">
+                            <label for="female">Femme</label>
+                            <label for="studentMatricule">Matricule :</label>
+                            <input type="text" id="studentMatricule" required>
+                            <label for="studentDOB">Date de naissance :</label>
+                            <input type="date" id="studentDOB" required>
+                            <label for="studentClass">Classe :</label>
+                            <select id="studentClass" required>
+                                <option value="Tle">Terminale</option>
+                                <option value="1ère">Première</option>
+                                <option value="2nd">Seconde</option>
+                                <option value="3ème">Troisième</option>
+                                <option value="4ème">Quatrième</option>
+                                <option value="5ème">Cinquième</option>
+                                <option value="6ème">Sixième</option>
+                            </select>
+                            <label for="studentPhone">Téléphone :</label>
+                            <input type="text" id="studentPhone" required>
+                            <label for="studentCity">Ville :</label>
+                            <input type="text" id="studentCity" required>
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </div>
+                    <table class="crud-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Genre</th>
+                                <th>Classe</th>
+                                <th>Matricule</th>
+                                <th>Date de Naissance</th>
+                                <th>Téléphone</th>
+                                <th>Ville</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsList">
+                            <!-- Les lignes des élèves seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section Professeurs -->
+            <div id="teachers" class="tab-content">
+                <div class="crud-container">
+                    <div class="crud-header">
+                        <h2> Professeurs (0)</h2>
+                        <button id="addTeacherButton">Ajouter un Professeur</button>
+                    </div>
+                    <div class="crud-form" id="addTeacherFormContainer" style="display: none;">
+                        <h3>Ajouter un Professeur</h3>
+                        <form id="addTeacherForm" class="crud-form">
+                            <label for="teacherName">Nom :</label>
+                            <input type="text" id="teacherName" required>
+                            <label for="teacherFirstName">Prénom :</label>
+                            <input type="text" id="teacherFirstName" required>
+                            <label>Genre :</label>
+                            <input type="radio" id="teacherMale" name="gender" value="Homme" required>
+                            <label for="teacherMale">Homme</label>
+                            <input type="radio" id="teacherFemale" name="gender" value="Femme">
+                            <label for="teacherFemale">Femme</label>
+                            <label for="teacherMatricule">Matricule :</label>
+                            <input type="text" id="teacherMatricule" required>
+                            <label for="teacherSubject">Matière :</label>
+                            <select id="teacherSubject" required>
+                                <option value="Mathématique">Mathématique</option>
+                                <option value="Anglais">Anglais</option>
+                                <option value="Français">Français</option>
+                                <option value="Physique">Physique</option>
+                                <option value="Chimie">Chimie</option>
+                                <option value="Informatique">Informatique</option>
+                                <option value="EPS">EPS</option>
+                            </select>
+                            <label for="teacherPhone">Téléphone :</label>
+                            <input type="text" id="teacherPhone" required>
+                            <label for="teacherCity">Ville :</label>
+                            <input type="text" id="teacherCity" required>
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </div>
+                    <table class="crud-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Genre</th>
+                                <th>Matière</th>
+                                <th>Matricule</th>
+                                <th>Téléphone</th>
+                                <th>Ville</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="teachersList">
+                            <!-- Les lignes des professeurs seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section Utilisateurs -->
+            <div id="users" class="tab-content">
+                <div class="crud-container">
+                    <div class="crud-header">
+                        <h2> Utilisateurs(0)</h2>
+                        <button id="addUserButton">Ajouter un Utilisateur</button>
+                    </div>
+                    <div class="crud-form" id="addUserFormContainer" style="display: none;">
+                        <h3>Ajouter un Utilisateur</h3>
+                        <form id="addUserForm" class="crud-form">
+                            <label for="userPseudo">Pseudo :</label>
+                            <input type="text" id="userPseudo" required>
+                            <label for="userPassword">Mot de passe :</label>
+                            <input type="password" id="userPassword" required>
+                            <label for="userConfirmPassword">Confirmer le mot de passe :</label>
+                            <input type="password" id="userConfirmPassword" required>
+                            <button type="submit">Enregistrer</button>
+                        </form>
+                    </div>
+                    <table class="crud-table">
+                        <thead>
+                            <tr>
+                                <th>Pseudo</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="usersList">
+                            <!-- Les lignes des utilisateurs seront insérées ici dynamiquement -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section Rapport -->
+            <div id="report" class="tab-content">
+                <h2>Rapport</h2>
+                <form id="reportForm">
+                    <label for="reportType">Type de Rapport :</label>
+                    <select id="reportType">
+                        <option value="students">Liste des élèves</option>
+                        <option value="teachers">Liste des professeurs</option>
+                        <option value="users">Liste des utilisateurs</option>
+                    </select>
+                    <button type="button" id="generatePDF">Générer PDF</button>
+                    <button type="button" id="generateExcel">Générer Excel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
